@@ -8,7 +8,7 @@ from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 
-from flask_sqlalchemy_session import flask_scoped_session, current_session
+from flask_sqlalchemy_session2024 import flask_scoped_session, current_session
 
 
 @pytest.fixture

@@ -23,16 +23,20 @@ if sys.version_info < (2, 6):
 if os.path.abspath(__file__).split(os.path.sep)[1] == 'vagrant':
     del os.link
 
+with open("README.md", "rt", encoding="utf-8") as f:
+    long_description = f.read()
+
 setup(
-    name="Flask-SQLAlchemy-Session",
-    version="1.1",
-    packages=["flask_sqlalchemy_session"],
-    author="Dimitris Theodorou",
-    author_email="dimitris.theodorou@gmail.com",
-    url='http://github.com/dtheodor/flask-sqlalchemy-session',
+    name="Flask-SQLAlchemy-Session2024",
+    version="2.0a0",
+    packages=["flask_sqlalchemy_session2024"],
+    author="Eduard Christian Dumitrescu",
+    author_email="eduard.c.dumitrescu@gmail.com",
+    url='https://github.com/e-c-d/flask-sqlalchemy-session2024',
     license="MIT",
     description='SQL Alchemy session scoped on Flask requests.',
-    long_description=__doc__,
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',

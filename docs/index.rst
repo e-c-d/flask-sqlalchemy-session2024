@@ -1,9 +1,9 @@
-=======================
-Flask-SQLAlchemy-Session
-=======================
+============================
+Flask-SQLAlchemy-Session2024
+============================
 .. toctree::
    :maxdepth: 2
-.. currentmodule:: flask_sqlalchemy_session
+.. currentmodule:: flask_sqlalchemy_session2024
 
 Flask-SQLALchemy-Session is a tiny library providing an SQLAlchemy scoped
 session that creates
@@ -22,7 +22,7 @@ Initialize a :class:`flask_scoped_session` as you would a
 app. Then use the resulting session to query models::
 
     from flask import Flask, abort, jsonify
-    from flask_sqlalchemy_session import flask_scoped_session
+    from flask_sqlalchemy_session2024 import flask_scoped_session
 
     app = Flask(__name__)
     session = flask_scoped_session(session_factory, app)
@@ -130,7 +130,7 @@ your SQL Alchemy constructs.
 API
 ---
 
-.. automodule:: flask_sqlalchemy_session
+.. automodule:: flask_sqlalchemy_session2024
 
     .. data:: current_session
 

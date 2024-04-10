@@ -1,13 +1,19 @@
-## Flask-SQLAlchemySession
+## Flask-SQLAlchemySession2024
 
-[![Build Status](https://travis-ci.org/dtheodor/flask-sqlalchemy-session.svg?branch=master)](https://travis-ci.org/dtheodor/flask-sqlalchemy-session)
-[![Coverage Status](https://coveralls.io/repos/dtheodor/flask-sqlalchemy-session/badge.svg)](https://coveralls.io/r/dtheodor/flask-sqlalchemy-session)
+This is a fork of the excellent
+[Flask-SQLAlchemySession](https://github.com/dtheodor/flask-sqlalchemy-session/)
+package by Dimitris Theodorou, which has unfortunately gone unpatched for a
+few years.
 
 Provides an SQLAlchemy scoped session that creates
 unique sessions per Flask request, following the guidelines documented at
-[Using Custom Created Scopes](http://docs.sqlalchemy.org/en/rel_0_9/orm/contextual.html#using-custom-created-scopes).
+[Using Custom Created Scopes](https://docs.sqlalchemy.org/en/20/orm/contextual.html).
 
-http://flask-sqlalchemy-session.readthedocs.org
+### TODO
+
+- build status
+- coverage
+- docs
 
 ### Usage
 
@@ -17,7 +23,7 @@ app. Then use the resulting session to query models:
 
 ```python
 from flask import Flask, abort, jsonify
-from flask_sqlalchemy_session import flask_scoped_session
+from flask_sqlalchemy_session2024 import flask_scoped_session
 
 app = Flask(__name__)
 session = flask_scoped_session(session_factory, app)
@@ -35,7 +41,7 @@ of the current request, in the same spirit of `flask.request` and
 `flask.current_app`.
 
 ```python
-from flask_sqlalchemy_session import current_session
+from flask_sqlalchemy_session2024 import current_session
 
 @app.route("/users/<int:user_id>")
 def user(user_id):
