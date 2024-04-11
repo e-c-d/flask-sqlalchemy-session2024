@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python package
+name: Run tests
 
 on:
   push:
@@ -10,16 +10,32 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["pypy3.9", "pypy3.10", "2.7", "3.9", "3.10", "3.11", "3.12"]
-        sa-version: ["<1", "<2", ""]
-        flask-version: ["~=0.10", "<1", "<2", "<3", ""]
-
+        python-version: [
+          # "2.7",  # it has been removed, sad
+          "3.9",
+          "3.10",
+          "3.11",
+          "3.12",
+        ]
+        sa-version: [
+          "0",
+          "1",
+          "2",
+        ]
+        flask-version: [
+          # "0" and "1" don't work due to a pytest bug
+          "2",
+          "3",
+          "4",
+        ]
+        exclude:
+          - python-version: ["3.10", "3.11", "3.12"]
+          - sa-version: "0"
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -28,15 +44,20 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        python -m venv /tmp/v
+        source /tmp/v/bin/activate
         python -m pip install --upgrade pip
-        python -m pip install flake8 pytest "sqlalchemy${{ matrix.sa-version }}" "flask${{ matrix.sa-version }}"
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m pip install flake8 pytest markupsafe==2.0.1 -f requirements-sqlalchemy-${{ matrix.sa-version }}.txt -f requirements-flask-${{ matrix.flask-version }}.txt
+        python -m pip install -e .
     - name: Lint with flake8
+      if: ${{ matrix.python-version == 3.12 }}
       run: |
+        source /tmp/v/bin/activate
         # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --exclude docs --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 . --exclude docs --count --exit-zero --statistics
     - name: Test with pytest
       run: |
+        source /tmp/v/bin/activate
         pytest
