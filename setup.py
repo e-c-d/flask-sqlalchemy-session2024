@@ -47,9 +47,10 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
-    install_requires=["sqlalchemy>=0.9", "Flask>=0.9", "Werkzeug>=0.6.1"],
-    tests_require=["pytest>=2.6", "mock>=1.0"],
+    # Flask should be >=0.10
+    install_requires=["sqlalchemy", "Flask", "Werkzeug"],
+    tests_require=["pytest"],
     extras_require={
-        'docs': ["Sphinx>=1.2.3", "alabaster>=0.6.3"]
+        'docs': ["Sphinx", "alabaster"]
     }
 )

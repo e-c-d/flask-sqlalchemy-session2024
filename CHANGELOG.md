@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Changed
 
 - Fork package and rename due to inactive upstream.
+- Rewrite class to stop using deprecated Flask API (`_app_ctx_stack`).
 - Reformat changelog.
 
 ### Removed
