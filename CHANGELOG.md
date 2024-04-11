@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-## [2.0] - 2024-04-11
+## [3.0.0] - 2024-04-11
+
+### Changed
+
+- Rename the Python module itself back to its original name. It is unlikely that
+  anyone will install both the original and the fork at the same time, and it is
+  better to avoid breaking people's imports if possible.
+
+## [2.0.0] - 2024-04-11
 
 ### Changed
 

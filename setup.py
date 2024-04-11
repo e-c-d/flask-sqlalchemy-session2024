@@ -28,8 +28,8 @@ with open("README.md", "rt", encoding="utf-8") as f:
 
 setup(
     name="Flask-SQLAlchemy-Session2024",
-    version="2.0.0",
-    packages=["flask_sqlalchemy_session2024"],
+    version="3.0.0",
+    packages=["flask_sqlalchemy_session"],
     author="Eduard Christian Dumitrescu",
     author_email="eduard.c.dumitrescu@gmail.com",
     url="https://github.com/e-c-d/flask-sqlalchemy-session2024",

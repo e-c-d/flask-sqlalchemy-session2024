@@ -24,7 +24,7 @@ app. Then use the resulting session to query models:
 
 ```python
 from flask import Flask, abort, jsonify
-from flask_sqlalchemy_session2024 import flask_scoped_session
+from flask_sqlalchemy_session import flask_scoped_session
 
 app = Flask(__name__)
 session = flask_scoped_session(session_factory, app)
@@ -42,7 +42,7 @@ of the current request, in the same spirit of `flask.request` and
 `flask.current_app`.
 
 ```python
-from flask_sqlalchemy_session2024 import current_session
+from flask_sqlalchemy_session import current_session
 
 @app.route("/users/<int:user_id>")
 def user(user_id):
