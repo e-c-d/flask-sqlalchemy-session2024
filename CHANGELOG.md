@@ -6,10 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [2.0] - 2024-04-11
+
 ### Changed
 
 - Fork package and rename due to inactive upstream.
-- Rewrite class to stop using deprecated Flask API (`_app_ctx_stack`).
+- Rewrite class to stop using deprecated Flask API (`_app_ctx_stack`). Thanks to
+  https://github.com/vincent-olivert-riera and https://github.com/schettino72
+  for contributing PRs (in the original project) which inspired this rewrite.
 - Reformat changelog.
 
 ### Removed

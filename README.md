@@ -1,5 +1,7 @@
 ## Flask-SQLAlchemySession2024
 
+[![Run tests](https://github.com/e-c-d/flask-sqlalchemy-session2024/actions/workflows/python-package.yml/badge.svg)](https://github.com/e-c-d/flask-sqlalchemy-session2024/actions/workflows/python-package.yml)
+
 This is a fork of the excellent
 [Flask-SQLAlchemySession](https://github.com/dtheodor/flask-sqlalchemy-session/)
 package by Dimitris Theodorou, which has unfortunately gone unpatched for a
@@ -11,7 +13,6 @@ unique sessions per Flask request, following the guidelines documented at
 
 ### TODO
 
-- build status
 - coverage
 - docs
 
